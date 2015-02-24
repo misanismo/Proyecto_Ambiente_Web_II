@@ -1,0 +1,57 @@
+﻿@model MVC5.Models.Usuario
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Registrar</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Registrar usuario</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nombre:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre)
+                @Html.ValidationMessageFor(model => model.Nombre)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nombre de usuario:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre_Usuario)
+                @Html.ValidationMessageFor(model => model.Nombre_Usuario)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Contraseña:</label>
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.Contrasenna)
+                @Html.ValidationMessageFor(model => model.Contrasenna)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Registrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
